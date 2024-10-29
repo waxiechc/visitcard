@@ -1,13 +1,36 @@
-/* Стили для фона и текста */
+/* Анимированный хаотичный градиент для фона с плавными переходами */
+@keyframes animateGradient {
+    0% {
+        background-position: 0% 50%;
+        background-size: 150% 150%;
+    }
+    25% {
+        background-position: 50% 0%;
+    }
+    50% {
+        background-position: 100% 50%;
+        background-size: 200% 200%;
+    }
+    75% {
+        background-position: 50% 100%;
+    }
+    100% {
+        background-position: 0% 50%;
+        background-size: 150% 150%;
+    }
+}
+
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    background: linear-gradient(to right, #8474eb, #262b42);
     font-family: 'Ubuntu', sans-serif;
-    color: #333;
+    color: #000000;
+    background: linear-gradient(220deg, #0675cc, #7395e4, #b0b9fe, #e5e0ff, #ffffff);
+    background-size: 300% 300%;
+    animation: animateGradient 10s ease infinite;
 }
 
 /* Контейнер с эффектом стеклянного фона */
@@ -20,6 +43,7 @@ body {
     max-width: 300px;
     width: 90%;
     height: 600px;
+    margin: 20px; /* Отступ от краёв экрана */
 
     display: flex;
     flex-direction: column;
@@ -51,7 +75,7 @@ p {
 
 /* Стили для кнопки */
 .button {
-    background-color: #a6c93a;
+    background-color: #2460c7;
     color: #fff;
     padding: 15px 25px;
     font-size: 1em;
@@ -66,8 +90,35 @@ p {
 
 /* Эффект при наведении на кнопку */
 .button:hover {
-    background-color: #4adf83;
+    background-color: #49eb87;
     box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+
+/* Стили для кнопок генерации и загрузки */
+.random-image-generator button {
+    margin-top: 15px;
+    padding: 15px 25px;
+    background-color: #2460c7;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 700;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s ease, box-shadow 0.3s ease, background-color 0.4s ease;
+}
+
+/* Эффект при наведении и нажатии на кнопки */
+.random-image-generator button:hover {
+    background-color: #49eb87;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+
+.random-image-generator button:active {
+    transform: translateY(-5px); /* Плавный подъем вверх при нажатии */
+    transition: transform 0.1s ease;
 }
 
 /* Стили для блока с контактами */
@@ -94,7 +145,29 @@ p {
 }
 
 .telegram-contacts a:hover {
-    color: #cacaca;
+    color: #ffffff;
+}
+
+/* Стили для контейнера генератора изображений */
+.random-image-generator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.random-image-generator img {
+    margin-top: 15px;
+    border-radius: 10px;
+    opacity: 0;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3); /* Тень для изображения */
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease;
+}
+
+.random-image-generator img.visible {
+    opacity: 1;
+    transform: scale(1.02); /* Немного увеличиваем изображение при появлении */
 }
 
 /* Адаптивные стили */
@@ -148,4 +221,10 @@ p {
     .telegram-contacts {
         font-size: 1.1em; /* Немного уменьшенный шрифт */
     }
+}
+
+#randomImage {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
 }
