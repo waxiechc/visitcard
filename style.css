@@ -1,0 +1,151 @@
+/* Стили для фона и текста */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(to right, #8474eb, #262b42);
+    font-family: 'Ubuntu', sans-serif;
+    color: #333;
+}
+
+/* Контейнер с эффектом стеклянного фона */
+.container {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: 0px 12px 40px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px); /* Эффект размытия */
+    max-width: 300px;
+    width: 90%;
+    height: 600px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавная анимация для увеличения и тени */
+}
+
+/* Эффект при наведении на контейнер */
+.container:hover {
+    transform: scale(1.03); /* Увеличение без изменения размытия */
+    box-shadow: 0px 16px 50px rgba(0, 0, 0, 0.3); /* Увеличение тени */
+}
+
+/* Стили для заголовка */
+h1 {
+    font-size: 2.5em;
+    margin: 0;
+    padding: 10px 20px;
+    color: #000;
+}
+
+/* Стили для текста */
+p {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+/* Стили для кнопки */
+.button {
+    background-color: #a6c93a;
+    color: #fff;
+    padding: 15px 25px;
+    font-size: 1em;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 700;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.4s ease, box-shadow 0.3s ease;
+}
+
+/* Эффект при наведении на кнопку */
+.button:hover {
+    background-color: #4adf83;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Стили для блока с контактами */
+.telegram-contacts {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 1.2em;
+    color: #333;
+    font-weight: 700;
+}
+
+.telegram-contacts p {
+    margin: 0;
+    font-weight: bold;
+    color: #000000;
+}
+
+/* Стили для ссылок */
+.telegram-contacts a {
+    color: #2a2a2a;
+    text-decoration: none;
+    transition: color 0.4s ease;
+}
+
+.telegram-contacts a:hover {
+    color: #cacaca;
+}
+
+/* Адаптивные стили */
+
+/* Стили для небольших экранов (мобильные телефоны) */
+@media (max-width: 600px) {
+    .container {
+        max-width: 100%; /* Используем 100% ширины экрана для мобильных */
+        height: auto; /* Убираем фиксированную высоту для адаптации */
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.8em; /* Уменьшаем размер заголовка на мобильных */
+    }
+
+    p {
+        font-size: 1em; /* Уменьшаем размер шрифта для текста */
+    }
+
+    .button {
+        padding: 10px 20px; /* Уменьшаем отступы кнопки */
+        font-size: 0.9em;
+    }
+
+    .telegram-contacts {
+        font-size: 1em; /* Корректируем размер текста для мобильных */
+    }
+}
+
+/* Стили для средних экранов (планшеты) */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .container {
+        max-width: 80%; /* Делаем ширину контейнера гибкой */
+        height: auto; /* Автоматическая высота для лучшей адаптации */
+    }
+
+    h1 {
+        font-size: 2.2em; /* Корректируем размер заголовка */
+    }
+
+    p {
+        font-size: 1.1em;
+    }
+
+    .button {
+        padding: 12px 22px; /* Немного меньше отступы для планшетов */
+        font-size: 0.95em;
+    }
+
+    .telegram-contacts {
+        font-size: 1.1em; /* Немного уменьшенный шрифт */
+    }
+}
