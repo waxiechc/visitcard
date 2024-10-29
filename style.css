@@ -170,6 +170,12 @@ p {
     transform: scale(1.02); /* Немного увеличиваем изображение при появлении */
 }
 
+#randomImage {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+}
+
 /* Адаптивные стили */
 
 /* Стили для небольших экранов (мобильные телефоны) */
@@ -223,8 +229,27 @@ p {
     }
 }
 
-#randomImage {
-    width: 400px;
-    height: 400px;
-    object-fit: cover;
+/* Дополнительные стили для очень маленьких экранов (менее 400px) */
+@media (max-width: 400px) {
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    p {
+        font-size: 0.9em;
+    }
+
+    .button {
+        padding: 8px 15px;
+        font-size: 0.8em;
+    }
+
+    #randomImage {
+        width: 100%;
+        height: auto;
+    }
 }
